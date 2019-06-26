@@ -1,5 +1,7 @@
 # Encrypted Keystore
 
+[![Gem Version](https://img.shields.io/gem/v/encrypted-keystore.svg)](https://rubygems.org/gems/encrypted-keystore)
+
 A simple encrypted key storage system.
 
 ## Installation
