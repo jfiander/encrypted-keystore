@@ -4,7 +4,7 @@ class EncryptedKeystore
   require 'openssl'
   require 'base64'
 
-  attr_accessor :path, :key, :iv
+  attr_accessor :file, :out, :key, :iv
 
   def initialize(file: nil, out: nil, key: nil, iv: nil)
     @file = file
