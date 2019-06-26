@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    encrypted-keystore (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  encrypted-keystore!
+
+BUNDLED WITH
+   1.17.3
