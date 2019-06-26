@@ -6,14 +6,14 @@ class EncryptedKeystore
 
   attr_accessor :file, :out, :key, :iv
 
-  def self.encrypt(file, out)
+  def self.encrypt(file: nil, out: nil)
     enc = new(file: file, out: out)
     enc.encrypt
 
     { key: enc.key, iv: enc.iv }
   end
 
-  def self.decrypt(file, out, key, iv)
+  def self.decrypt(file: nil, out: nil, key: nil, iv: nil)
     enc = new(file: file, out: out, key: key, iv: iv)
     enc.decrypt
   end

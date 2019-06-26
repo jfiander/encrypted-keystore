@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'encrypted-keystore'
-  s.version       = '0.0.4'
+  s.version       = '0.0.5'
   s.date          = '2019-06-26'
   s.summary       = 'Simple key encrypter/decrypter'
   s.description   = 'A simple encrypted key storage system.'
