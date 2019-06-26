@@ -58,8 +58,8 @@ private
   end
 
   def validate(enc: false)
-    unless !@file.nil? && !@out.nil? && (!enc || (!@key.nil? && !@iv.nil?))
-      raise ArgumentError, 'Required arguments have not been provided.'
-    end
+    return true if !@file.nil? && !@out.nil? && (!enc || (!@key.nil? && !@iv.nil?))
+
+    raise ArgumentError, 'Required arguments have not been provided.'
   end
 end
