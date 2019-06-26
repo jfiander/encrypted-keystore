@@ -1,52 +1,71 @@
-# Rails, Quietly
+# Encrypted Keystore
 
-A simple wrapper to suppress logging in various ways in Rails apps.
+A simple encrypted key storage system.
 
 ## Installation
 
 Add this to your Gemfile:
 
 ```ruby
-gem 'rails-quietly'
+gem 'encrypted-keystore'
 ```
 
 or install directly:
 
 ```bash
-gem install rails-quietly
+gem install encrypted-keystore
 ```
 
 ## Inclusion
 
-In `config/applicaiton.rb`, include the following:
+In `config/application.rb`, include the following:
 
 ```ruby
-require 'quietly'
-include Quietly::Local
+require 'encrypted_keystore'
 ```
-
-This puts the module into global scope.
 
 ## Usage
 
-You can either use the `quietly` method with a block:
+### Direct Construction
+
+Encrypt:
 
 ```ruby
-result_b = quietly do
-  a = ModelA.query
-  ModelB.query(a)
-end
+ek = EncryptedKeystore.new(
+  file: 'path/to/key.pem',
+  out: 'path/to/encrypted.pem.enc'
+)
+
+ek.encrypt
+key = ek.key
+iv = ek.iv
 ```
 
-or manually suppress and restore logging:
+Decrypt:
 
 ```ruby
-old_logger = go_quiet
+ek = EncryptedKeystore.new(
+  file: 'path/to/encrypted.pem.enc',
+  out: 'path/to/key.pem',
+  key: key,
+  iv: iv
+)
 
-a = ModelA.query
-result_b = ModelB.query(a)
+ek.decrypt
+```
 
-end_quiet(old_logger)
+### Class Methods
 
-result_b
+```ruby
+key_hash = EncryptedKeystore.encrypt(
+  file: 'path/to/key.pem',
+  out: 'path/to/encrypted.pem.enc'
+)
+
+EncryptedKeystore.decrypt(
+  file: 'path/to/encrypted.pem.enc',
+  out: 'path/to/key.pem',
+  key: key,
+  iv: iv
+)
 ```
