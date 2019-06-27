@@ -29,6 +29,8 @@ class EncryptedKeystore
     validate
 
     write(dec_cipher)
+    FileUtils.chmod(0o0600, @out)
+    @out
   end
 
   def encrypt

@@ -1,11 +1,13 @@
 PATH
   remote: .
   specs:
-    encrypted-keystore (0.0.5)
+    encrypted-keystore (0.0.6)
+      fileutils (~> 1.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    fileutils (1.2.0)
 
 PLATFORMS
   ruby
